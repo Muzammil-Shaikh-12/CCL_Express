@@ -1,0 +1,338 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #0a0a0a;
+  min-height: 100vh;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Background grid effect */
+body::before {
+  content: '';
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(#000 2px, transparent 2px),
+              linear-gradient(90deg, #000 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: center;
+  animation: gridMove 20s linear infinite;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.back-button {
+  display: inline-block;
+  color: #0ff;
+  text-decoration: none;
+  margin-bottom: 60px;
+  font-size: 1.2em;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.back-button:hover {
+  color: #f0f;
+  transform: translateX(-5px);
+}
+
+.cards-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.card {
+  background: rgba(10, 10, 10, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+  animation: shine 3s infinite;
+}
+
+.about-card {
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+.about-card h2 {
+  margin-bottom: 20px;
+  color: #0ff;
+  font-size: 2em;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.skill-card {
+  text-align: center;
+  animation: floatCard 4s ease-in-out infinite;
+}
+
+.skill-card:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.skill-card:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.skill-card i {
+  font-size: 3em;
+  color: #0ff;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+}
+
+.skill-card h3 {
+  margin-bottom: 20px;
+  color: #0ff;
+  font-size: 1.8em;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.skill-card ul {
+  list-style: none;
+}
+
+.skill-card li {
+  margin: 15px 0;
+  font-size: 1.1em;
+  opacity: 0.9;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: #f0f;
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.3);
+}
+
+.social-footer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.social-footer .social-icon {
+  color: #0ff;
+  font-size: 2.5em;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.social-footer .social-icon:hover {
+  color: #f0f;
+  transform: translateY(-5px) scale(1.1);
+  text-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+}
+
+@keyframes floatCard {
+  0%, 100% {
+      transform: translateY(0);
+  }
+  50% {
+      transform: translateY(-10px);
+  }
+}
+
+@keyframes shine {
+  0% {
+      left: -100%;
+  }
+  20% {
+      left: 100%;
+  }
+  100% {
+      left: 100%;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+      padding: 40px 20px;
+  }
+  
+  .skills-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+/* Common styles for both main.css and profile.css */
+
+/* Particle Background */
+.particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: #0ff;
+  pointer-events: none;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #0ff;
+  animation: floatParticle 15s linear infinite;
+}
+
+/* Create multiple particles with different animations */
+.particle:nth-child(2n) {
+  background: #f0f;
+  box-shadow: 0 0 10px #f0f;
+  animation-duration: 25s;
+}
+
+.particle:nth-child(3n) {
+  background: #ff0;
+  box-shadow: 0 0 10px #ff0;
+  animation-duration: 20s;
+}
+
+/* Enhanced body background */
+body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(#000 2px, transparent 2px),
+    linear-gradient(90deg, #000 2px, transparent 2px),
+    radial-gradient(circle, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 60px 60px;
+  background-position: center;
+  animation: gridMove 20s linear infinite;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Enhanced card animations */
+.profile-card, .card {
+  backdrop-filter: blur(10px);
+  animation: cardPulse 5s ease-in-out infinite;
+}
+
+.profile-card::after, .card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #0ff, #f0f, #0ff);
+  filter: blur(5px);
+  z-index: -1;
+  animation: borderGlow 5s linear infinite;
+}
+
+/* Enhanced hover effects */
+.name:hover, .social-icon:hover {
+  animation: glowText 3s ease-in-out infinite;
+}
+
+.avatar:hover {
+  animation: spinGlow 4s ease-in-out infinite;
+}
+
+/* New Animations */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) translateX(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes cardPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5),
+                inset 0 0 30px rgba(0, 255, 255, 0.3);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(10px);
+  }
+}
+
+@keyframes glowText {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 255, 1),
+                 0 0 30px rgba(0, 255, 255, 0.8);
+  }
+}
+
+@keyframes spinGlow {
+  0% {
+    transform: scale(1) rotate(0deg);
+    border-color: #0ff;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    border-color: #f0f;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    border-color: #0ff;
+  }
+}

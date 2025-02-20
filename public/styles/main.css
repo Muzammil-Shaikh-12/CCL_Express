@@ -1,0 +1,334 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.ec2-info {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+}
+
+.skills a{
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.skills {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7px;
+  margin-bottom: 12px;
+  padding: 12px 20px;
+  background: rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 255, 255, 0.6);
+  border-radius: 10px;
+  color: #0ff;
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: none !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+  
+}
+
+.skills:hover {
+  background: rgba(0, 255, 255, 0.4);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  transform: translateX(5px);
+}
+
+/* Add an arrow to indicate forward navigation */
+.skills::after {
+  content: ' →';
+  margin-left: 8px;
+  font-size: 1.2em;
+  transition: margin-left 0.3s ease;
+}
+
+.skills:hover::after {
+  margin-left: 12px;
+}
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: #0a0a0a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background grid effect */
+body::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(#000 2px, transparent 2px),
+              linear-gradient(90deg, #000 2px, transparent 2px);
+  background-size: 40px 40px;
+  background-position: center;
+  animation: gridMove 20s linear infinite;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  position: relative;
+}
+
+.profile-card {
+  background: rgba(10, 10, 10, 0.8);
+  border: 2px solid #0ff;
+  border-radius: 20px;
+  padding: 80px ;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3),
+              inset 0 0 20px rgba(0, 255, 255, 0.2);
+  animation: pulseNeon 2s infinite;
+  position: relative;
+}
+
+.profile-card::before {
+  display: none;
+}
+
+.profile-image {
+  margin-bottom: 50px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #0ff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+  border-color: #f0f;
+}
+
+.name {
+  display: block;
+  font-size: 2.5em;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.name:hover {
+  color: #0ff;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 1.8em;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  color: #0ff;
+  transform: translateY(-5px);
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+@keyframes pulseNeon {
+  0%, 100% {
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3),
+                  inset 0 0 20px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.5),
+                  inset 0 0 30px rgba(0, 255, 255, 0.3);
+  }
+}
+
+@keyframes borderRotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
+}
+
+@keyframes gridMove {
+  0% {
+      transform: translateY(0);
+  }
+  100% {
+      transform: translateY(-50%);
+  }
+}
+
+/* Common styles for both main.css and profile.css */
+
+/* Particle Background */
+.particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: #0ff;
+  pointer-events: none;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #0ff;
+  animation: floatParticle 15s linear infinite;
+}
+
+/* Create multiple particles with different animations */
+.particle:nth-child(2n) {
+  background: #f0f;
+  box-shadow: 0 0 10px #f0f;
+  animation-duration: 25s;
+}
+
+.particle:nth-child(3n) {
+  background: #ff0;
+  box-shadow: 0 0 10px #ff0;
+  animation-duration: 20s;
+}
+
+/* Enhanced body background */
+body {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: 
+    linear-gradient(#000 2px, transparent 2px),
+    linear-gradient(90deg, #000 2px, transparent 2px),
+    radial-gradient(circle, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 60px 60px;
+  background-position: center;
+  animation: gridMove 20s linear infinite;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+/* Enhanced card animations */
+.profile-card, .card {
+  backdrop-filter: blur(10px);
+  animation: cardPulse 3s ease-in-out infinite;
+}
+
+.profile-card::after, .card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(45deg, #0ff, #f0f, #0ff);
+  filter: blur(5px);
+  z-index: -1;
+  animation: borderGlow 3s linear infinite;
+}
+
+/* Enhanced hover effects */
+.name:hover, .social-icon:hover {
+  animation: glowText 1s ease-in-out infinite;
+}
+
+.avatar:hover {
+  animation: pulse 3s infinite;
+ }
+ 
+ @keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+ }
+
+/* New Animations */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(100vh) translateX(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes cardPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3),
+                inset 0 0 20px rgba(0, 255, 255, 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.5),
+                inset 0 0 30px rgba(0, 255, 255, 0.3);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes borderGlow {
+  0%, 100% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 0.8;
+    filter: blur(10px);
+  }
+}
+
+@keyframes glowText {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 255, 255, 1),
+                 0 0 30px rgba(0, 255, 255, 0.8);
+  }
+}
+
+@keyframes spinGlow {
+  0% {
+    transform: scale(1) rotate(0deg);
+    border-color: #0ff;
+  }
+  50% {
+    transform: scale(1.1) rotate(180deg);
+    border-color: #f0f;
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+    border-color: #0ff;
+  }
+}
