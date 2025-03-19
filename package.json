@@ -4,5 +4,17 @@
     "express": "^4.21.2",
     "gsap": "^3.12.7",
     "three": "^0.172.0"
-  }
+  },
+  "name": "express-exp-2",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "scripts": {
+    "install": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
